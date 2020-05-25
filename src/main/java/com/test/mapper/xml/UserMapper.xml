@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.test.mapper.UserMapper">
+
+    <select id="getUser" resultType="User" parameterType="int" >
+        SELECT * FROM test WHERE id = #{userid}
+    </select>
+  <!--  private  int id;
+    private String password;
+    private String userName;
+    private String email;
+    private String role;
+    private int status;
+    private String ip;
+    private Date time;-->
+    <insert id="insertUser" parameterType="com.test.model.User" >
+        insert  into test(id,email,password,username,role,status,time,ip) values
+        (#{id},#{password},#{userName},#{email},#{role},#{status},#{ip},#{time})
+    </insert>
+
+</mapper>
